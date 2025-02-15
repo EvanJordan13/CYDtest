@@ -1,20 +1,14 @@
 'use client';
 
-import * as React from 'react';
-import { NextUIProvider } from '@nextui-org/system';
-import { useRouter } from 'next/navigation';
-import { UserProvider } from '@auth0/nextjs-auth0/client';
+import { ChakraProvider, defaultSystem } from '@chakra-ui/react';
+import { ThemeProvider } from 'next-themes';
 
-export interface ProvidersProps {
-  children: React.ReactNode;
-}
-
-export function Providers({ children }: ProvidersProps) {
-  const router = useRouter();
-
+export default function RootLayout(props: { children: React.ReactNode }) {
   return (
-    <UserProvider>
-      <NextUIProvider navigate={router.push}>{children}</NextUIProvider>
-    </UserProvider>
+    <ChakraProvider value={defaultSystem}>
+      <ThemeProvider attribute="class" disableTransitionOnChange>
+        {props.children}
+      </ThemeProvider>
+    </ChakraProvider>
   );
 }

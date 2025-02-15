@@ -1,18 +1,20 @@
+'use client';
+
 import { siteConfig } from '@/config/site';
 import Link from 'next/link';
-import React from 'react';
+import { Box, Text, Link as ChakraLink, Flex } from '@chakra-ui/react';
 
 export default function Footer() {
   return (
-    <div className="w-full flex items-center justify-center gap-6 py-3">
-      {/* Copyright notice */}
-      <p className="text-center text-default-600">
-        &copy; {new Date().getFullYear()} {siteConfig.name}
-      </p>
-      {/* Terms & Privacy */}
-      <Link href="/terms" target="_blank" rel="noopener noreferrer" className="ml-2 text-default-600">
-        Terms & Privacy
-      </Link>
-    </div>
+    <Box py={4}>
+      <Flex justifyContent="center" alignItems="center" gap={6}>
+        <Text color="gray.600">
+          &copy; {new Date().getFullYear()} {siteConfig.name}
+        </Text>
+        <ChakraLink as={Link} href="/terms" color="gray.600">
+          Terms & Privacy
+        </ChakraLink>
+      </Flex>
+    </Box>
   );
 }

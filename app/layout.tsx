@@ -1,8 +1,6 @@
-import '@/styles/globals.css';
+import Provider from './providers';
 import type { Metadata } from 'next';
 import { siteConfig } from '@/config/site';
-import { Providers } from '@/app/providers';
-import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
@@ -21,15 +19,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <head />
-      <body className="min-h-screen bg-background font-sans antialiased">
-        <Providers>
-          <div className="relative flex flex-col h-screen">
-            <Navbar />
-            <main className="container prose mx-auto max-w-7xl px-6 flex-grow">{children}</main>
-            <Footer />
-          </div>
-        </Providers>
+      <body>
+        <Provider>
+          <main>{children}</main>
+          <Footer />
+        </Provider>
       </body>
     </html>
   );

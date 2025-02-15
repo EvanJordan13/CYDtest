@@ -1,10 +1,7 @@
-import Link from 'next/link';
+'use client';
+
+import { Box } from '@chakra-ui/react';
 
 export default function Home() {
-  return (
-    <div>
-      <h1>Home</h1>
-      <p>This is a placeholder.</p>
-    </div>
-  );
+  return <Box></Box>;
 }
