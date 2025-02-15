@@ -15,10 +15,7 @@
     "pre-commit": "npm run lint-staged",
     "prettify": "npm run prettier",
     "format": "prettier --write . --log-level silent",
-    "prisma": "npx prisma db pull && npx prisma generate",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:e2e": "playwright test"
+    "prisma": "npx prisma db pull && npx prisma generate"
   },
   "husky": {
     "hooks": {
